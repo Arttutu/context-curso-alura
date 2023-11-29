@@ -3,7 +3,6 @@ import { StylesProvider } from "@material-ui/core/styles"
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
-import Login from "pages/Login"
 import Router from "./router"
 
 const theme = createTheme({
