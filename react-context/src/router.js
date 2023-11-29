@@ -7,6 +7,7 @@ import React, { useState } from "react"
 import Login from "pages/Login"
 import Carrinho from "pages/Carrinho"
 import Feira from "pages/Feira"
+import { UsuarioContex } from "Commun/Context/Usuario"
 
 export default function Router() {
   const [nome, setNome] = useState("testeNome")
@@ -15,12 +16,9 @@ export default function Router() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Login
-            nome={nome}
-            setNome={setNome}
-            saldo={saldo}
-            setSaldo={setSaldo}
-          />
+          <UsuarioContex.Provider value={{ nome, setNome, saldo, setSaldo }}>
+            <Login />
+          </UsuarioContex.Provider>
         </Route>
         <Route path="/carrinho">
           <Carrinho />
