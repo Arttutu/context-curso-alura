@@ -13,17 +13,17 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <UsuarioProvider>
+        <UsuarioProvider>
+          <Route exact path="/">
             <Login />
-          </UsuarioProvider>
-        </Route>
-        <Route path="/carrinho">
-          <Carrinho />
-        </Route>
-        <Route path="/feira">
-          <Feira />
-        </Route>
+          </Route>
+          <Route path="/carrinho">
+            <Carrinho />
+          </Route>
+          <Route path="/feira">
+            <Feira />
+          </Route>
+        </UsuarioProvider>
       </Switch>
     </BrowserRouter>
   )
