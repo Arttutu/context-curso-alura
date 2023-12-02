@@ -8,6 +8,7 @@ import Login from "pages/Login"
 import Carrinho from "pages/Carrinho"
 import Feira from "pages/Feira"
 import { UsuarioProvider } from "Commun/Context/Usuario"
+import { CarrinhoProvider } from "Commun/Context/Carrinho"
 
 export default function Router() {
   return (
@@ -20,9 +21,11 @@ export default function Router() {
           <Route path="/carrinho">
             <Carrinho />
           </Route>
-          <Route path="/feira">
-            <Feira />
-          </Route>
+          <CarrinhoProvider>
+            <Route path="/feira">
+              <Feira />
+            </Route>
+          </CarrinhoProvider>
         </UsuarioProvider>
       </Switch>
     </BrowserRouter>
