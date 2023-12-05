@@ -8,6 +8,19 @@ import { CarrinhoContex } from "Commun/Context/Carrinho"
 
 function Produto({ nome, foto, id, valor, unidade }) {
   const { carrinho, setCarrinho } = useContext(CarrinhoContex)
+
+  function adicionarproduto(novoProduto) {
+    const temOProduto = carrinho.some(
+      (itemDoCarrinho) => itemDoCarrinho.id === novoProduto.id
+    )
+    if (!temOProduto) {
+      novoProduto.quantidade = 1
+      return setCarrinho((carrinhoAnterior) => [
+        ...carrinhoAnterior,
+        novoProduto,
+      ])
+    }
+  }
   return (
     <Container>
       <div>
@@ -20,7 +33,7 @@ function Produto({ nome, foto, id, valor, unidade }) {
         <IconButton color="secondary">
           <RemoveIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => adicionarproduto({ nome, foto, id, valor })}>
           <AddIcon />
         </IconButton>
       </div>
